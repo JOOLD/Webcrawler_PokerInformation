@@ -280,6 +280,11 @@ arrify@^2.0.0, arrify@^2.0.1:
   resolved "https://registry.npmmirror.com/arrify/-/arrify-2.0.1.tgz"
   integrity sha512-3duEwti880xqi4eAMN8AyR4a0ByT90zoYdLlevfrvU43vb0YZwZVfxOgxWrLXXXpyugL0hNZc9G6BiB5B3nUug==
 
+async@^3.2.3:
+  version "3.2.4"
+  resolved "https://registry.npmmirror.com/async/-/async-3.2.4.tgz"
+  integrity sha512-iAB+JbDEGXhyIUavoDl9WP/Jj106Kz9DEn1DPgYw5ruDn0e3Wgi3sKFm55sASdGBNOQB8F59d9qQ7deqrHA8wQ==
+
 asynckit@^0.4.0:
   version "0.4.0"
   resolved "https://registry.npmmirror.com/asynckit/-/asynckit-0.4.0.tgz"
@@ -341,6 +346,13 @@ brace-expansion@^1.1.7:
     balanced-match "^1.0.0"
     concat-map "0.0.1"
 
+brace-expansion@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.npmmirror.com/brace-expansion/-/brace-expansion-2.0.1.tgz"
+  integrity sha512-XnAIvQ8eM+kC6aULx6wuQiwVsnzsi9d3WxzV3FpWTGA19F621kwdbsAcFKXgKUHZWsy+mY6iL1sHTxWEFCytDA==
+  dependencies:
+    balanced-match "^1.0.0"
+
 buffer-crc32@~0.2.3:
   version "0.2.13"
   resolved "https://registry.npmmirror.com/buffer-crc32/-/buffer-crc32-0.2.13.tgz"
@@ -374,6 +386,14 @@ chalk@^2.0.0:
     supports-color "^5.3.0"
 
 chalk@^4.0.0:
+  version "4.1.2"
+  resolved "https://registry.npmmirror.com/chalk/-/chalk-4.1.2.tgz"
+  integrity sha512-oKnbhFyRIXpUuez8iBMmyEa4nbj4IOQyuhc/wy9kY7/WVPcwIO9VA668Pu8RkO7+0G76SLROeyw9CpQ061i4mA==
+  dependencies:
+    ansi-styles "^4.1.0"
+    supports-color "^7.1.0"
+
+chalk@^4.0.2:
   version "4.1.2"
   resolved "https://registry.npmmirror.com/chalk/-/chalk-4.1.2.tgz"
   integrity sha512-oKnbhFyRIXpUuez8iBMmyEa4nbj4IOQyuhc/wy9kY7/WVPcwIO9VA668Pu8RkO7+0G76SLROeyw9CpQ061i4mA==
@@ -496,6 +516,13 @@ ecdsa-sig-formatter@^1.0.11, ecdsa-sig-formatter@1.0.11:
   integrity sha512-nagl3RYrbNv6kQkeJIpt6NJZy8twLB/2vtz6yN9Z4vRKHN4/QZJIEbqohALSgwKdnksuY3k5Addp5lg8sVoVcQ==
   dependencies:
     safe-buffer "^5.0.1"
+
+ejs@^3.1.8:
+  version "3.1.8"
+  resolved "https://registry.npmmirror.com/ejs/-/ejs-3.1.8.tgz"
+  integrity sha512-/sXZeMlhS0ArkfX2Aw780gJzXSMPnKjtspYZv+f3NiKLlubezAHDU5+9xz6gd3/NhG3txQCo6xlglmTS+oTGEQ==
+  dependencies:
+    jake "^10.8.5"
 
 end-of-stream@^1.1.0:
   version "1.4.4"
@@ -696,6 +723,13 @@ file-type@^12.4.1:
   version "12.4.2"
   resolved "https://registry.npmmirror.com/file-type/-/file-type-12.4.2.tgz"
   integrity sha512-UssQP5ZgIOKelfsaB5CuGAL+Y+q7EmONuiwF3N5HAH0t27rvrttgi6Ra9k/+DVaY9UF6+ybxu5pOXLUdA8N7Vg==
+
+filelist@^1.0.1:
+  version "1.0.4"
+  resolved "https://registry.npmmirror.com/filelist/-/filelist-1.0.4.tgz"
+  integrity sha512-w1cEuf3S+DrLCQL7ET6kz+gmlJdbq9J7yXCSjK/OZCPA+qEN1WyF4ZAf0YYJa4/shHJra2t/d/r8SV4Ji+x+8Q==
+  dependencies:
+    minimatch "^5.0.1"
 
 find-up@^5.0.0:
   version "5.0.0"
@@ -1075,6 +1109,16 @@ isexe@^2.0.0:
   resolved "https://registry.npmmirror.com/isexe/-/isexe-2.0.0.tgz"
   integrity sha512-RHxMLp9lnKHGHRng9QFhRCMbYAcVpn69smSGcq3f36xjgVVWThj4qqLbTLlq7Ssj8B+fIQ1EuCEGI2lKsyQeIw==
 
+jake@^10.8.5:
+  version "10.8.5"
+  resolved "https://registry.npmmirror.com/jake/-/jake-10.8.5.tgz"
+  integrity sha512-sVpxYeuAhWt0OTWITwT98oyV0GsXyMlXCF+3L1SuafBVUIr/uILGRB+NqwkzhgXKvoJpDIpQvqkUALgdmQsQxw==
+  dependencies:
+    async "^3.2.3"
+    chalk "^4.0.2"
+    filelist "^1.0.1"
+    minimatch "^3.0.4"
+
 js-sdsl@^4.1.4:
   version "4.3.0"
   resolved "https://registry.npmmirror.com/js-sdsl/-/js-sdsl-4.3.0.tgz"
@@ -1192,12 +1236,19 @@ mime-types@^2.1.12:
   dependencies:
     mime-db "1.52.0"
 
-minimatch@^3.0.5, minimatch@^3.1.1, minimatch@^3.1.2:
+minimatch@^3.0.4, minimatch@^3.0.5, minimatch@^3.1.1, minimatch@^3.1.2:
   version "3.1.2"
   resolved "https://registry.npmmirror.com/minimatch/-/minimatch-3.1.2.tgz"
   integrity sha512-J7p63hRiAjw1NDEww1W7i37+ByIrOWO5XQQAzZ3VOcL0PNybwpfmV/N05zFAzwQ9USyEcX6t3UO+K5aqBQOIHw==
   dependencies:
     brace-expansion "^1.1.7"
+
+minimatch@^5.0.1:
+  version "5.1.6"
+  resolved "https://registry.npmmirror.com/minimatch/-/minimatch-5.1.6.tgz"
+  integrity sha512-lKwV/1brpG6mBUFHtb7NUmtABCb2WZZmm2wNiOA5hAb8VdCS4B3dtMWyvcoViccwAW/COERjXLt0zP1zXUN26g==
+  dependencies:
+    brace-expansion "^2.0.1"
 
 ms@2.1.2:
   version "2.1.2"

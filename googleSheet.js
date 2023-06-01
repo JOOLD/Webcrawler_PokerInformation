@@ -4,7 +4,6 @@ const path = require('path');
 const process = require('process');
 const {authenticate} = require('@google-cloud/local-auth');
 const {google} = require('googleapis');
-const { resourceLimits } = require('worker_threads');
 
 // If modifying these scopes, delete token.json.
 const SCOPES = ['https://www.googleapis.com/auth/spreadsheets'];
@@ -67,69 +66,42 @@ async function authorize() {
   return client;
 }
 
-/**
- * Prints the names and majors of students in a sample spreadsheet:
- * @see https://docs.google.com/spreadsheets/d/1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms/edit
- * @param {google.auth.OAuth2} auth The authenticated Google OAuth client.
- */
-async function listMajors(auth) {
-  const sheets = google.sheets({version: 'v4', auth});
-  const res = await sheets.spreadsheets.values.get({
-    spreadsheetId: '1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms',
-    range: 'Class Data!A2:E',
-  });
-  const rows = res.data.values;
-  if (!rows || rows.length === 0) {
-    console.log('No data found.');
-    return;
-  }
-  console.log('Name, Major:');
-  rows.forEach((row) => {
-    // Print columns A and E, which correspond to indices 0 and 4.
-    console.log(`${row[0]}, ${row[4]}`);
-  });
-}
-
-
-
-function writeData(auth) {
+function writeData(auth, data) {
   const sheets = google.sheets({ version: 'v4', auth });
-  let values = [
-    ['Chris', 'Male', '1. Freshman', 'FL', 'Art', 'Baseball'],
-    ['張哲銓', '300萬', 200]
-    // Potential next row
-  ];
-  const resource = {
-    values,
-  };
   // 檢查第一列是否有相同的資料
   // chatGPT給的參考程式碼
   sheets.spreadsheets.values.get({
+    // 測試用分頁ID
+    // spreadsheetId: "1Ipl7O6g3Z4RFwALNhb6cwrEeyq0REZ_V9fU-p4DNFGg",
+    // range: "工作表1!A:I",
     spreadsheetId: "1Ipl7O6g3Z4RFwALNhb6cwrEeyq0REZ_V9fU-p4DNFGg",
-    range: "工作表1!A1",
+    range: "彰化A8!A:I",
   }, (err, result) => {
     if(err) {
       // Handler error
       console.log(err);
     } else {
-      console.log(result.data.values);
+      // console.log(result.data.values);
       const existingValues = result.data.values[0];
-      const newValues = values[0];
+      const newValues = data[0];
       const match = existingValues.every((val, i) => val === newValues[i]);
 
       //  Only write the new row if there is no match
       if (!match) {
-        const resource = { values };
+        const resource = { values: data };
         sheets.spreadsheets.values.append(
           {
+            // 測試用分頁ID
+            // spreadsheetId: "1Ipl7O6g3Z4RFwALNhb6cwrEeyq0REZ_V9fU-p4DNFGg",
+            // range: "工作表1!A:I",
             spreadsheetId: "1Ipl7O6g3Z4RFwALNhb6cwrEeyq0REZ_V9fU-p4DNFGg",
-            range: "工作表1!A2",
+            range: "彰化A8!A:I",
             valueInputOption: "RAW",
             resource,
           },
           (err, result) => {
             if (err) {
-              // Handle error;
+              console.log(err)
             } else {
               console.log(
                 '%d cells updated on range: %s',
@@ -144,6 +116,7 @@ function writeData(auth) {
   });
 }
 
-
-authorize().then(writeData).catch(console.error);
-
+exports.write = async (data) => {
+  const auth = await authorize();
+  writeData(auth, data);
+}
