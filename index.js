@@ -13,15 +13,18 @@ const fb_password = process.env.FB_PASSWORD;
 const webdriver = require("selenium-webdriver"); //加入虛擬網頁套件
 (By = webdriver.By), // 你想要透過什麼方式來抓取元?
   (until = webdriver.until); //直到抓到元件才進行下一步(可設定等待時間)
+const path = require("path"); // 用於處理文件路徑的小工具
+// const chromeDriverPath = path.join(__dirname, "chromedriver"); 
 
 const chrome = require("selenium-webdriver/chrome");
 const options = new chrome.Options();
 // 因為 notifications 會干擾到爬蟲，所以要先把它關掉
+// options.setChromeBinaryPath(chromeDriverPath);
 options.setUserPreferences({
   "profile.default_content_setting_values.notifications": 1,
 });
 
-const path = require("path"); // 用於處理文件路徑的小工具
+
 const fs = require("fs").promises; // 讀取檔案用
 
 // If modifying these scopes, delete token.json.
